@@ -9,6 +9,7 @@ const details={
     location:"Bhabanipur",
     "age":21
 }
+
 console.log(details.name) 
 console.log(details["name"]); // we should remember this
 console.log(details.age);
@@ -20,5 +21,5 @@ details.greetings=function()
     
 }
 console.log(details.greetings());
-
+console.log(details);
 
