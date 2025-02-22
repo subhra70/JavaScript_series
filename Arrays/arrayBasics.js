@@ -5,8 +5,8 @@ const arr3=[1,2,"Subhra",2.5,true]
 const arr4=new Array(1,2,5)
 /*JavaScript arrays are resizable and can contain a mix of different data types.
 JavaScript array-copy operations create shallow copies. (shallow copies means share same references)*/
-console.log(arr2)
-console.log(arr3[2])
+// console.log(arr2)
+// console.log(arr3[2])
 
 // Different methods
 // let len=arr1.length;
@@ -18,8 +18,8 @@ console.log(arr3[2])
 // console.log(arr3)
 // arr2.unshift("Captain America")
 // console.log(arr2);
-// arr2.shift()
-// console.log(arr2);
+arr2.shift()
+console.log(arr2);
 
 console.log("Main Array",arr1);
 
