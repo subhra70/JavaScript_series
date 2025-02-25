@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color-changer</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .canvas {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 70%;
+        padding: 80px;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+      button {
+        width: 100px;
+        height: 40px;
+        margin: 0 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>
+      Generate random background color by tapping the start button, and the
+      color generation continues until stop button is clicked
+    </h3>
+    <div class="canvas">
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+    </div>
+    <script>
+      let startInterval1;
+      const generateRandom = function () {
+        const hexval = "123456789ABCDEF";
+        let bgcolor = "#";
+        for (let i = 0; i < 6; i++) {
+          const rand = Math.floor((Math.random() * 10) % 16);
+          bgcolor += hexval[rand];
+        }
+        document.querySelector(".canvas").style.backgroundColor = bgcolor;
+      };
+
+      document.getElementById("start").addEventListener("click", () => {
+        if (startInterval1 == null) {
+          startInterval1 = setInterval(generateRandom, 2000);
+        }
+      });
+      document.getElementById("stop").addEventListener("click", () => {
+        clearInterval(startInterval1);
+        startInterval1 = null; // as its use is done so setting it null
+      });
+    </script>
+  </body>
+</html>
