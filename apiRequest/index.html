@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .card {
+        width: 500px;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <p>Fetching Data from github using the api key</p>
+    </div>
+  </body>
+  <script>
+    const url = "https://api.github.com/users/subhra70";
+    const card=document.querySelector('.card')
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        const data = JSON.parse(this.responseText);
+        const img=document.createElement('img')
+        const h2=document.createElement('h2')
+        const h4=document.createElement('h4')
+        img.setAttribute('src',data.avatar_url)
+        img.setAttribute('alt',data.login)
+        h2.innerHTML=data.name
+        h4.innerHTML=data.location
+        card.appendChild(img)
+        card.appendChild(h2)
+        card.appendChild(h4)
+      }
+    };
+    xhr.send();
+  </script>
+</html>
